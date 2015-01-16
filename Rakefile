@@ -27,7 +27,7 @@ namespace :compile do
   rule '.js' => '.coffee' do |t|
     output = File.dirname(t.source).gsub(/app\//, 'www/')
     print "CoffeeScript | " # #{t.source} -> #{output}"
-    sh "coffee -b -o #{output} #{t.source}"
+    sh "coffee --no-header -b -o #{output} #{t.source}"
   end
 
   rule '.css' => '.sass' do |t|
